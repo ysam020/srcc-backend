@@ -37,6 +37,10 @@ import getDrivers from "./routes/get/getDrivers.mjs";
 import rto from "./routes/rto.mjs";
 import getRto from "./routes/getRto.mjs";
 import rtoExpiryIntimation from "./routes/rtoExpiryIntimation.mjs";
+import getTruckDetails from "./routes/get/getTruckDetails.mjs";
+import engineOilRestock from "./routes/restockEngineOil.mjs";
+import engineOilDistribution from "./routes/engineOilDistribution.mjs";
+import getEngineOilStock from "./routes/getEngineOilStock.mjs";
 
 const app = express();
 app.use(bodyParser.json({ limit: "100mb" }));
@@ -81,14 +85,16 @@ mongoose
     app.use(getTyreNumber);
     app.use(getRepairType);
     app.use(getDrivers);
+    app.use(getTruckDetails);
 
     app.use(tyreFitting);
 
-    // app.use(tyreWarrantyIntimaton);
     app.use(rto);
-    // app.use(mailReport);
     app.use(getRto);
     app.use(rtoExpiryIntimation);
+    app.use(engineOilRestock);
+    app.use(engineOilDistribution);
+    app.use(getEngineOilStock);
 
     app.listen(8000, () => {
       console.log("Server is running on port 8000");
