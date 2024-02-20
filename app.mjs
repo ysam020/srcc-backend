@@ -41,6 +41,7 @@ import getTruckDetails from "./routes/get/getTruckDetails.mjs";
 import engineOilRestock from "./routes/restockEngineOil.mjs";
 import engineOilDistribution from "./routes/engineOilDistribution.mjs";
 import getEngineOilStock from "./routes/getEngineOilStock.mjs";
+import viewEngineOil from "./routes/viewEnigneOil.mjs";
 
 const app = express();
 app.use(bodyParser.json({ limit: "100mb" }));
@@ -95,6 +96,7 @@ mongoose
     app.use(engineOilRestock);
     app.use(engineOilDistribution);
     app.use(getEngineOilStock);
+    app.use(viewEngineOil);
 
     app.listen(8000, () => {
       console.log("Server is running on port 8000");

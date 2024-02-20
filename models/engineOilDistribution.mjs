@@ -5,6 +5,8 @@ const engineOilDistributionSchema = new mongoose.Schema({
   driver: { type: String },
   date: { type: String },
   truck_no: { type: String },
+  odometer: { type: Number },
+  location: { type: String },
 });
 
 const engineOilDistribution = mongoose.model(
