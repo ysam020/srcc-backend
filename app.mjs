@@ -19,6 +19,7 @@ import tyreBlast from "./routes/post/tyreBlast.mjs";
 import tyreRetreading from "./routes/post/tyreRetreading.mjs";
 import truckTyres from "./routes/post/addTruckTyres.mjs";
 import driverAssignment from "./routes/post/driverAssignment.mjs";
+import addTypeOfVehicle from "./routes/post/addTypeOfVehicle.mjs";
 // Get ***********************************************************************
 import getVendors from "./routes/get/getVendors.mjs";
 import getTyreModel from "./routes/get/getTyreModel.mjs";
@@ -32,6 +33,7 @@ import getTruckNumber from "./routes/get/getTruckNumber.mjs";
 import getTyreNumber from "./routes/get/getTyreNumber.mjs";
 import getRepairType from "./routes/get/getRepairType.mjs";
 import getDrivers from "./routes/get/getDrivers.mjs";
+import getTypeOfVehicle from "./routes/get/getTypeOfVehicle.mjs";
 // import mailReport from "./routes/mailReport.mjs";
 // import tyreWarrantyIntimaton from "./routes/tyreWarrantyIntimation.mjs";
 import rto from "./routes/rto.mjs";
@@ -42,6 +44,11 @@ import engineOilRestock from "./routes/restockEngineOil.mjs";
 import engineOilDistribution from "./routes/engineOilDistribution.mjs";
 import getEngineOilStock from "./routes/getEngineOilStock.mjs";
 import viewEngineOil from "./routes/viewEnigneOil.mjs";
+import addLocationMaster from "./routes/addLocationMaster.mjs";
+import addOrganisationMaster from "./routes/addOrganisationMaster.mjs";
+import getOrganisationData from "./routes/getOrganisationData.mjs";
+import getOrganisations from "./routes/getOrganisations.mjs";
+import getTruckNumberWithType from "./routes/get/getTruckNumberWithType.mjs";
 
 const app = express();
 app.use(bodyParser.json({ limit: "100mb" }));
@@ -50,8 +57,8 @@ app.use(express.json());
 
 mongoose
   .connect(
-    // "mongodb://localhost:27017/srcc",
-    "mongodb+srv://sameery020:CId21lR1oWh6Od19@cluster0.pelnvme.mongodb.net/srcc?retryWrites=true&w=majority",
+    "mongodb://localhost:27017/srcc",
+    // "mongodb+srv://sameery020:CId21lR1oWh6Od19@cluster0.pelnvme.mongodb.net/srcc?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -74,6 +81,7 @@ mongoose
     app.use(tyreRetreading);
     app.use(truckTyres);
     app.use(driverAssignment);
+    app.use(addTypeOfVehicle);
 
     app.use(getVendors);
     app.use(getTyreModel);
@@ -87,6 +95,7 @@ mongoose
     app.use(getRepairType);
     app.use(getDrivers);
     app.use(getTruckDetails);
+    app.use(getTypeOfVehicle);
 
     app.use(tyreFitting);
 
@@ -97,6 +106,12 @@ mongoose
     app.use(engineOilDistribution);
     app.use(getEngineOilStock);
     app.use(viewEngineOil);
+
+    app.use(addLocationMaster);
+    app.use(addOrganisationMaster);
+    app.use(getOrganisationData);
+    app.use(getOrganisations);
+    app.use(getTruckNumberWithType);
 
     app.listen(8000, () => {
       console.log("Server is running on port 8000");
