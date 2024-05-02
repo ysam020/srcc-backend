@@ -57,8 +57,8 @@ app.use(express.json());
 
 mongoose
   .connect(
-    "mongodb://localhost:27017/srcc",
-    // "mongodb+srv://sameery020:CId21lR1oWh6Od19@cluster0.pelnvme.mongodb.net/srcc?retryWrites=true&w=majority",
+    // "mongodb://localhost:27017/srcc",
+    "mongodb+srv://sameery020:CId21lR1oWh6Od19@cluster0.pelnvme.mongodb.net/srcc?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
