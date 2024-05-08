@@ -47,6 +47,8 @@ import viewEngineOil from "./routes/viewEnigneOil.mjs";
 import addLocationMaster from "./routes/addLocationMaster.mjs";
 import addOrganisationMaster from "./routes/addOrganisationMaster.mjs";
 import getOrganisationData from "./routes/getOrganisationData.mjs";
+import getOrganisationList from "./routes/getOrganisationList.mjs";
+import addOrganisationAddress from "./routes/addOrganisationAddress.mjs";
 import getOrganisations from "./routes/getOrganisations.mjs";
 import getTruckNumberWithType from "./routes/get/getTruckNumberWithType.mjs";
 
@@ -111,7 +113,9 @@ mongoose
     app.use(addOrganisationMaster);
     app.use(getOrganisationData);
     app.use(getOrganisations);
+    app.use(getOrganisationList);
     app.use(getTruckNumberWithType);
+    app.use(addOrganisationAddress);
 
     app.listen(8000, () => {
       console.log("Server is running on port 8000");

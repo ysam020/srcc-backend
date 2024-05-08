@@ -7,7 +7,14 @@ const organisationMasterSchema = new mongoose.Schema({
   branches: [
     {
       branch: { type: String, trim: true },
-      address: { type: String, trim: true },
+      default: { type: Boolean, default: false },
+      addresses: [
+        {
+          address_type: { type: String, trim: true },
+          address: { type: String, trim: true },
+          default: { type: Boolean, default: false },
+        },
+      ],
     },
   ],
   phone: { type: String, trim: true },

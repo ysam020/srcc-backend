@@ -25,12 +25,12 @@ router.post("/api/addOrganisationMaster", async (req, res) => {
         .json({ message: "An organisation with the same GST already exists." });
     }
 
-    // If no existing organisation found, create a new one
+    // Create a new organisation master document
     const newOrganisationMaster = await OrganisationMaster.create({
       name,
       gst,
       instructions,
-      branches,
+      branches: branches,
       phone,
       website,
       email,
