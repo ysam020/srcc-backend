@@ -20,6 +20,7 @@ import tyreRetreading from "./routes/post/tyreRetreading.mjs";
 import truckTyres from "./routes/post/addTruckTyres.mjs";
 import driverAssignment from "./routes/post/driverAssignment.mjs";
 import addTypeOfVehicle from "./routes/post/addTypeOfVehicle.mjs";
+import addContainerType from "./routes/post/addContainerType.mjs";
 // Get ***********************************************************************
 import getVendors from "./routes/get/getVendors.mjs";
 import getTyreModel from "./routes/get/getTyreModel.mjs";
@@ -34,6 +35,7 @@ import getTyreNumber from "./routes/get/getTyreNumber.mjs";
 import getRepairType from "./routes/get/getRepairType.mjs";
 import getDrivers from "./routes/get/getDrivers.mjs";
 import getTypeOfVehicle from "./routes/get/getTypeOfVehicle.mjs";
+import getContainerTypes from "./routes/get/getContainerTypes.mjs";
 // import mailReport from "./routes/mailReport.mjs";
 // import tyreWarrantyIntimaton from "./routes/tyreWarrantyIntimation.mjs";
 import rto from "./routes/rto.mjs";
@@ -59,8 +61,8 @@ app.use(express.json());
 
 mongoose
   .connect(
-    // "mongodb://localhost:27017/srcc",
-    "mongodb+srv://sameery020:CId21lR1oWh6Od19@cluster0.pelnvme.mongodb.net/srcc?retryWrites=true&w=majority",
+    "mongodb://localhost:27017/srcc",
+    // "mongodb+srv://sameery020:CId21lR1oWh6Od19@cluster0.pelnvme.mongodb.net/srcc?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -84,6 +86,7 @@ mongoose
     app.use(truckTyres);
     app.use(driverAssignment);
     app.use(addTypeOfVehicle);
+    app.use(addContainerType);
 
     app.use(getVendors);
     app.use(getTyreModel);
@@ -98,6 +101,7 @@ mongoose
     app.use(getDrivers);
     app.use(getTruckDetails);
     app.use(getTypeOfVehicle);
+    app.use(getContainerTypes);
 
     app.use(tyreFitting);
 
