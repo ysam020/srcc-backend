@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const rtoSchema = new mongoose.Schema({
+  truck_no: { type: String },
   fitness_document: { type: String },
   fitness_document_expiry_date: { type: String },
   inspection_due_date: { type: String },
