@@ -53,6 +53,7 @@ import getOrganisationList from "./routes/getOrganisationList.mjs";
 import addOrganisationAddress from "./routes/addOrganisationAddress.mjs";
 import getOrganisations from "./routes/getOrganisations.mjs";
 import getTruckNumberWithType from "./routes/get/getTruckNumberWithType.mjs";
+import getLocationMasters from "./routes/getLocationMasters.mjs";
 
 const app = express();
 app.use(bodyParser.json({ limit: "100mb" }));
@@ -120,6 +121,7 @@ mongoose
     app.use(getOrganisationList);
     app.use(getTruckNumberWithType);
     app.use(addOrganisationAddress);
+    app.use(getLocationMasters);
 
     app.listen(8000, () => {
       console.log("Server is running on port 8000");

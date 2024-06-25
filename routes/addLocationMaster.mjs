@@ -14,7 +14,7 @@ router.post("/api/addLocationMaster", async (req, res) => {
       // If the document exists, push the new area and pincode
       locationMaster.area.push({ area, pincode });
       await locationMaster.save();
-      res.status(200).json(locationMaster);
+      res.status(200).json({ message: "Location Master Created Successfully" });
     } else {
       // If the document doesn't exist, create a new one
       locationMaster = await LocationMaster.create({
@@ -22,7 +22,7 @@ router.post("/api/addLocationMaster", async (req, res) => {
         district,
         area: [{ area, pincode }],
       });
-      res.status(201).json(locationMaster);
+      res.status(201).json({ message: "Location Master Created Successfully" });
     }
   } catch (error) {
     console.log(error);

@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const locationMasterSchema = new mongoose.Schema({
+  location: { type: String, trim: true },
   district: { type: String, trim: true },
   area: [
     {
